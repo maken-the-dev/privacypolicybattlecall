@@ -39,21 +39,19 @@
         }
 
         .logo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 20px;
-            background: white;
-            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .logo img {
-            width: 80%;
-            height: 80%;
+            width: 100%;
+            height: 100%;
             object-fit: contain;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
         }
 
         .header h1 {
@@ -192,6 +190,22 @@
             font-weight: 600;
         }
 
+        .contact-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(0) invert(1) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+        }
+
         .footer {
             text-align: center;
             padding: 30px;
@@ -221,6 +235,11 @@
                 font-size: 1.8em;
             }
 
+            .logo {
+                width: 120px;
+                height: 120px;
+            }
+
             .content {
                 padding: 30px 20px;
             }
@@ -233,6 +252,11 @@
                 margin: 40px -20px -30px -20px;
                 padding: 30px 20px;
             }
+
+            .contact-logo {
+                width: 100px;
+                height: 100px;
+            }
         }
 
         strong {
@@ -243,13 +267,22 @@
             font-weight: 600;
             color: #667eea;
         }
+
+        a {
+            color: #667eea;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #764ba2;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <div class="logo">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='70' font-size='70' fill='%23667eea'%3E⚔%3C/text%3E%3C/svg%3E" alt="BattleCall Logo">
+                <img src="./assets/splash screen.png" alt="maken.dev Logo" onerror="this.style.display='none'">
             </div>
             <h1>Privacy Policy</h1>
             <div class="tagline">BattleCall | Your AI Alarm & Reminder Coach</div>
@@ -260,7 +293,7 @@
 
         <div class="content">
             <div class="last-updated">
-                <strong>Last Updated:</strong> <span class="effective-date">February 7, 2026</span>
+                <strong>Last Updated:</strong> <span class="effective-date">April 6, 2026</span>
             </div>
 
             <p>
@@ -338,14 +371,6 @@
                 </div>
 
                 <div class="permission-item">
-                    <div class="permission-icon">🔓</div>
-                    <div class="permission-details">
-                        <strong>Display Over Apps (SYSTEM_ALERT_WINDOW)</strong>
-                        Required to show the alarm screen over other apps and the lock screen to ensure you don't miss your alarm.
-                    </div>
-                </div>
-
-                <div class="permission-item">
                     <div class="permission-icon">🔋</div>
                     <div class="permission-details">
                         <strong>Wake Lock (WAKE_LOCK)</strong>
@@ -390,7 +415,7 @@
             <ul>
                 <li>Your name, goals, and daily plans are sent to Google's Gemini API to generate motivational content</li>
                 <li>This data is transmitted securely over HTTPS</li>
-                <li>Google may process this data according to their <a href="https://policies.google.com/privacy" target="_blank" style="color: #667eea; text-decoration: underline;">Privacy Policy</a></li>
+                <li>Google may process this data according to their <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a></li>
                 <li>You can opt out of AI Coach features and use traditional alarm sounds instead</li>
             </ul>
 
@@ -399,7 +424,19 @@
                 servers for AI processing. If you prefer complete privacy, use the Ringtone, Voice Memo, or Custom Media sound modes instead.
             </div>
 
-            <h3>4.2 Expo Platform</h3>
+            <h3>4.2 RevenueCat (Subscription Management)</h3>
+            <p>
+                BattleCall uses <strong>RevenueCat</strong> to manage premium subscriptions and in-app purchases.
+                When you make a purchase:
+            </p>
+            <ul>
+                <li>Your anonymous app user ID and purchase receipt are shared with RevenueCat to verify your entitlements</li>
+                <li>RevenueCat does <strong>not</strong> receive your name, email, or other personally identifiable information</li>
+                <li>All payment processing is handled entirely by Google Play — we never have access to your card details</li>
+                <li>RevenueCat processes data according to their <a href="https://www.revenuecat.com/privacy" target="_blank">Privacy Policy</a></li>
+            </ul>
+
+            <h3>4.3 Expo Platform</h3>
             <p>
                 BattleCall is built using Expo/React Native framework. Expo may collect anonymous analytics data about app crashes 
                 and performance. This data does not contain any personal information.
@@ -438,6 +475,7 @@
             <ul>
                 <li><strong>With Your Consent:</strong> When you explicitly choose to export or share data (e.g., sharing a QR code)</li>
                 <li><strong>For AI Features:</strong> When you use AI Coach, data is sent to Google Gemini API as described above</li>
+                <li><strong>For Purchases:</strong> An anonymous user ID and purchase receipt are shared with RevenueCat to verify subscription entitlements</li>
                 <li><strong>Legal Requirements:</strong> If required by law, court order, or government regulation</li>
                 <li><strong>App Store Analytics:</strong> Anonymous usage data may be shared with Google Play Store for app improvement</li>
             </ul>
@@ -502,11 +540,12 @@
             <h2>11. Premium Features and Payments</h2>
             
             <p>
-                BattleCall offers premium features through in-app purchases. Payment processing is handled by Google Play Store:
+                BattleCall offers premium features through in-app purchases managed by Google Play and RevenueCat:
             </p>
             <ul>
                 <li>We do not collect or store your payment information</li>
-                <li>All transactions are processed securely by Google Play</li>
+                <li>All card transactions are processed securely by Google Play</li>
+                <li>Subscription entitlements are verified through RevenueCat using an anonymous user ID</li>
                 <li>Your purchase history is linked to your Google account</li>
                 <li>Refunds are handled according to Google Play's refund policy</li>
             </ul>
@@ -563,6 +602,9 @@
         </div>
 
         <div class="contact-section">
+            <div class="contact-logo">
+                <img src="./assets/splash screen.png" alt="maken.dev" onerror="this.style.display='none'">
+            </div>
             <h2>Contact Us</h2>
             <p>
                 If you have any questions, concerns, or requests regarding this Privacy Policy or your data, 
@@ -570,7 +612,7 @@
             </p>
             <p style="margin-top: 20px;">
                 <strong>maken.dev</strong><br>
-                Email: <a href="mailto:privacy@maken.dev">privacy@maken.dev</a><br>
+                Email: <a href="mailto:maken.hq@gmail.com">maken.hq@gmail.com</a><br>
                 Website: <a href="https://maken.dev" target="_blank">maken.dev</a>
             </p>
             <p style="margin-top: 30px; font-size: 0.9em; opacity: 0.9;">
