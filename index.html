@@ -293,7 +293,7 @@
 
         <div class="content">
             <div class="last-updated">
-                <strong>Last Updated:</strong> <span class="effective-date">April 6, 2026</span>
+                <strong>Last Updated:</strong> <span class="effective-date">August 25, 2026</span>
             </div>
 
             <p>
@@ -302,8 +302,9 @@
             </p>
 
             <div class="highlight-box">
-                <strong>🔒 Key Principle:</strong> BattleCall is designed with privacy in mind. All your data is stored locally 
-                on your device. We do not collect, transmit, or store any personal data on external servers.
+                <strong>🔒 Key Principle:</strong> Everything personal — your goals, alarms, recordings and streak — stays on your 
+                device. maken.dev operates no servers and never receives that data. The only things that leave your device are 
+                anonymous usage analytics, purchase verification, and (if you choose AI Coach) the text used to write your wake-up message.
             </div>
 
             <h2>1. Information We Collect</h2>
@@ -320,11 +321,18 @@
             </ul>
 
             <h3>1.2 Automatically Collected Information</h3>
-            <p>The app automatically collects minimal technical information necessary for functionality:</p>
+            <p>The app automatically collects the following technical information:</p>
             <ul>
-                <li><strong>App Installation Date:</strong> To track your free trial period</li>
+                <li><strong>App Installation Date:</strong> To track your free trial period (stored locally)</li>
                 <li><strong>Device State:</strong> To ensure alarms function properly (wake locks, audio state)</li>
-                <li><strong>Crash Logs:</strong> Anonymous diagnostic data to improve app stability (if you consent)</li>
+                <li><strong>Analytics Events:</strong> Which screens you open and which options you pick — alarm type, sound mode,
+                    ringtone, unlock method, and purchase events. These never include your name, goals, alarm labels, voice
+                    recordings, or QR code contents</li>
+                <li><strong>Device &amp; App Info:</strong> Device model, Android version, language, country, and app version,
+                    recorded alongside analytics events</li>
+                <li><strong>Advertising ID:</strong> Your device's resettable Android advertising identifier, used to measure our
+                    advertising campaigns</li>
+                <li><strong>Crash Logs:</strong> Anonymous diagnostic data to improve app stability</li>
             </ul>
 
             <h2>2. Permissions We Request</h2>
@@ -347,6 +355,30 @@
                 </div>
 
                 <div class="permission-item">
+                    <div class="permission-icon">🖥️</div>
+                    <div class="permission-details">
+                        <strong>Display Over Other Apps (SYSTEM_ALERT_WINDOW)</strong>
+                        Required to show the ringing screen on top of whatever app is open when an alarm fires.
+                    </div>
+                </div>
+
+                <div class="permission-item">
+                    <div class="permission-icon">📺</div>
+                    <div class="permission-details">
+                        <strong>Full-Screen Notifications (USE_FULL_SCREEN_INTENT)</strong>
+                        Required to open the alarm full-screen on your lock screen instead of as a small notification.
+                    </div>
+                </div>
+
+                <div class="permission-item">
+                    <div class="permission-icon">🔊</div>
+                    <div class="permission-details">
+                        <strong>Foreground Service (FOREGROUND_SERVICE, FOREGROUND_SERVICE_MEDIA_PLAYBACK)</strong>
+                        Required to keep the alarm sound playing reliably for as long as the alarm is ringing.
+                    </div>
+                </div>
+
+                <div class="permission-item">
                     <div class="permission-icon">🎤</div>
                     <div class="permission-details">
                         <strong>Microphone (RECORD_AUDIO)</strong>
@@ -359,6 +391,15 @@
                     <div class="permission-details">
                         <strong>Camera (CAMERA)</strong>
                         Only used if you choose QR code scanning as an alarm unlock method. No photos are stored or transmitted.
+                    </div>
+                </div>
+
+                <div class="permission-item">
+                    <div class="permission-icon">🚶</div>
+                    <div class="permission-details">
+                        <strong>Physical Activity (ACTIVITY_RECOGNITION)</strong>
+                        Only used if you choose the step-count unlock mission. Steps are counted while the alarm rings and are
+                        never stored or transmitted.
                     </div>
                 </div>
 
@@ -379,6 +420,14 @@
                 </div>
 
                 <div class="permission-item">
+                    <div class="permission-icon">🔌</div>
+                    <div class="permission-details">
+                        <strong>Ignore Battery Optimisation (REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)</strong>
+                        Optional. Asks Android not to put BattleCall to sleep, so scheduled alarms are not silently skipped.
+                    </div>
+                </div>
+
+                <div class="permission-item">
                     <div class="permission-icon">🔄</div>
                     <div class="permission-details">
                         <strong>Run at Startup (RECEIVE_BOOT_COMPLETED)</strong>
@@ -390,19 +439,40 @@
                     <div class="permission-icon">🎵</div>
                     <div class="permission-details">
                         <strong>Audio Settings (MODIFY_AUDIO_SETTINGS)</strong>
-                        Required to set alarm volume to maximum to ensure you hear your alarm.
+                        Required to set alarm volume to maximum to ensure you hear your alarm (Ultra Volume).
+                    </div>
+                </div>
+
+                <div class="permission-item">
+                    <div class="permission-icon">📳</div>
+                    <div class="permission-details">
+                        <strong>Vibrate (VIBRATE)</strong>
+                        Required to vibrate the device while an alarm is ringing.
+                    </div>
+                </div>
+
+                <div class="permission-item">
+                    <div class="permission-icon">🌐</div>
+                    <div class="permission-details">
+                        <strong>Internet (INTERNET)</strong>
+                        Required for AI Coach generation, purchase validation, and anonymous analytics.
                     </div>
                 </div>
             </div>
 
             <h2>3. How We Use Your Information</h2>
             
-            <p>Your information is used <strong>exclusively on your device</strong> for the following purposes:</p>
+            <p>Your personal information is used <strong>on your device</strong> for the following purposes:</p>
             <ul>
                 <li><strong>Alarm Functionality:</strong> To schedule, trigger, and manage your alarms and reminders</li>
                 <li><strong>AI Coach Feature:</strong> To generate personalized motivational messages using your goals and preferences</li>
                 <li><strong>User Experience:</strong> To remember your preferences, track your streak, and provide a personalized experience</li>
-                <li><strong>App Improvements:</strong> Anonymous crash data may be collected to fix bugs and improve performance</li>
+            </ul>
+            <p>Anonymous, non-personal information is used for:</p>
+            <ul>
+                <li><strong>Product Decisions:</strong> Aggregated analytics tell us which features are actually used</li>
+                <li><strong>Ad Measurement:</strong> Your advertising ID lets Google attribute app installs to our own campaigns</li>
+                <li><strong>App Improvements:</strong> Anonymous crash data is collected to fix bugs and improve performance</li>
             </ul>
 
             <h2>4. Third-Party Services</h2>
@@ -424,7 +494,27 @@
                 servers for AI processing. If you prefer complete privacy, use the Ringtone, Voice Memo, or Custom Media sound modes instead.
             </div>
 
-            <h3>4.2 RevenueCat (Subscription Management)</h3>
+            <h3>4.2 Firebase Analytics &amp; Advertising ID</h3>
+            <p>
+                BattleCall uses <strong>Google Firebase Analytics</strong> to understand how the app is used and to measure our
+                advertising:
+            </p>
+            <ul>
+                <li>Anonymous events are logged: screens opened, alarms created and completed, and which options you chose
+                    (alarm type, sound mode, ringtone, unlock method, purchases)</li>
+                <li>Device model, Android version, language, country, and app version are recorded alongside those events</li>
+                <li>Your device's Android advertising ID is collected so Google can attribute app installs to our campaigns and
+                    build audience segments</li>
+                <li>Your name, goals, alarm labels, voice recordings, and QR code contents are <strong>never</strong> included</li>
+                <li>Google processes this data according to their <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a></li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>🎯 Ad Tracking Opt-Out:</strong> You can reset or delete your advertising ID at any time in
+                Android <strong>Settings → Privacy → Ads</strong>. Deleting it stops advertising-based measurement for this app.
+            </div>
+
+            <h3>4.3 RevenueCat (Subscription Management)</h3>
             <p>
                 BattleCall uses <strong>RevenueCat</strong> to manage premium subscriptions and in-app purchases.
                 When you make a purchase:
@@ -436,7 +526,19 @@
                 <li>RevenueCat processes data according to their <a href="https://www.revenuecat.com/privacy" target="_blank">Privacy Policy</a></li>
             </ul>
 
-            <h3>4.3 Expo Platform</h3>
+            <h3>4.4 Google Play In-App Review</h3>
+            <p>
+                After a few successful alarms, BattleCall may ask whether you'd like to rate the app. If you agree, Google Play's
+                own review sheet opens inside the app.
+            </p>
+            <ul>
+                <li>Any review you write is submitted to and stored by <strong>Google Play</strong>, not by us</li>
+                <li>Google never tells us whether you left a review or what it said</li>
+                <li>Only your answer to our own question ("Rate", "Maybe later", "Don't ask again") is saved locally, so we know
+                    not to keep asking</li>
+            </ul>
+
+            <h3>4.5 Expo Platform</h3>
             <p>
                 BattleCall is built using Expo/React Native framework. Expo may collect anonymous analytics data about app crashes 
                 and performance. This data does not contain any personal information.
@@ -464,7 +566,8 @@
             <h3>5.3 Security Measures</h3>
             <ul>
                 <li>Data is stored locally and protected by your device's security (PIN, pattern, biometrics)</li>
-                <li>No data is transmitted to external servers except when using AI Coach features</li>
+                <li>maken.dev operates no servers of its own. Data leaves your device only for Google Gemini (AI Coach),
+                    RevenueCat (purchase verification), and Firebase Analytics (anonymous usage), always over HTTPS</li>
                 <li>Audio recordings are stored locally and never uploaded without your explicit action</li>
                 <li>QR code data is generated and stored locally on your device</li>
             </ul>
@@ -477,12 +580,15 @@
                 <li><strong>For AI Features:</strong> When you use AI Coach, data is sent to Google Gemini API as described above</li>
                 <li><strong>For Purchases:</strong> An anonymous user ID and purchase receipt are shared with RevenueCat to verify subscription entitlements</li>
                 <li><strong>Legal Requirements:</strong> If required by law, court order, or government regulation</li>
+                <li><strong>Analytics &amp; Ads:</strong> Anonymous usage events and your resettable advertising ID are sent to
+                    Google Firebase Analytics, as described in section 4.2</li>
                 <li><strong>App Store Analytics:</strong> Anonymous usage data may be shared with Google Play Store for app improvement</li>
             </ul>
 
             <div class="highlight-box">
                 <strong>✅ No Data Selling:</strong> We will NEVER sell your personal data to advertisers, data brokers, 
-                or any third parties.
+                or any third parties. The only identifier shared for advertising purposes is your resettable Android advertising ID, 
+                used solely to measure our own campaigns.
             </div>
 
             <h2>7. Your Rights and Choices</h2>
@@ -500,7 +606,8 @@
             <ul>
                 <li><strong>AI Features:</strong> Choose traditional ringtones instead of AI Coach to avoid data transmission</li>
                 <li><strong>Permissions:</strong> Revoke any permission in your device settings (may limit functionality)</li>
-                <li><strong>Analytics:</strong> Disable crash reporting in app settings (if available)</li>
+                <li><strong>Ad Tracking:</strong> Reset or delete your advertising ID in Android Settings → Privacy → Ads</li>
+                <li><strong>Review Prompts:</strong> Choose "Don't ask again" and BattleCall will never ask you to rate it again</li>
             </ul>
 
             <h3>7.3 Data Deletion</h3>
@@ -556,7 +663,9 @@
             <ul>
                 <li><strong>Right to Know:</strong> Request details about data we collect</li>
                 <li><strong>Right to Delete:</strong> Request deletion of your personal information</li>
-                <li><strong>Right to Opt-Out:</strong> Opt out of data sharing (we don't share data except as disclosed)</li>
+                <li><strong>Right to Opt-Out:</strong> We do not sell personal information. Sharing your advertising ID with
+                    Google for ad measurement may qualify as "sharing" under the CCPA — you can opt out by deleting your
+                    advertising ID in Android Settings → Privacy → Ads</li>
                 <li><strong>Right to Non-Discrimination:</strong> We won't discriminate against you for exercising your rights</li>
             </ul>
 
@@ -582,7 +691,8 @@
                 <li>You clear the app's data from device settings</li>
             </ul>
             <p>
-                Data sent to Google Gemini for AI processing is not retained by maken.dev. Refer to Google's 
+                Data sent to Google Gemini for AI processing is not retained by maken.dev. Anonymous analytics events are retained
+                by Firebase according to Google's retention settings and are not linked to your identity. Refer to Google's
                 privacy policy for their data retention practices.
             </p>
 
@@ -595,6 +705,7 @@
                 <li>The collection and use of information as described in this Privacy Policy</li>
                 <li>Granting necessary permissions for app functionality</li>
                 <li>Transmission of data to Google Gemini when using AI Coach features (optional)</li>
+                <li>Collection of anonymous analytics events and your advertising ID by Google Firebase Analytics</li>
             </ul>
             <p>
                 You can withdraw consent at any time by uninstalling the app or disabling specific features.
