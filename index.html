@@ -263,9 +263,24 @@
             color: #333;
         }
 
-        .effective-date {
+            .effective-date {
             font-weight: 600;
             color: #667eea;
+        }
+
+        .legal-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+            font-size: 0.95em;
+        }
+
+        .legal-nav a {
+            color: white;
+            text-decoration: underline;
+            font-weight: 600;
         }
 
         a {
@@ -289,11 +304,15 @@
             <div class="company">
                 Developed by <span class="company-logo">maken.dev</span>
             </div>
+            <div class="legal-nav">
+                <a href="./privacy-policy.html">Privacy Policy</a>
+                <a href="./terms-of-service.html">Terms of Service</a>
+            </div>
         </div>
 
         <div class="content">
             <div class="last-updated">
-                <strong>Last Updated:</strong> <span class="effective-date">August 25, 2026</span>
+                <strong>Last Updated:</strong> <span class="effective-date">November 11, 2026</span>
             </div>
 
             <p>
@@ -304,7 +323,7 @@
             <div class="highlight-box">
                 <strong>🔒 Key Principle:</strong> Everything personal — your goals, alarms, recordings and streak — stays on your 
                 device. maken.dev operates no servers and never receives that data. The only things that leave your device are 
-                anonymous usage analytics, purchase verification, and (if you choose AI Coach) the text used to write your wake-up message.
+                anonymous usage analytics, ads (free users), purchase verification, and (if you choose AI Coach) the text used to write your wake-up message.
             </div>
 
             <h2>1. Information We Collect</h2>
@@ -317,6 +336,7 @@
                 <li><strong>Audio Recordings:</strong> Voice memos you record for custom alarm sounds (stored locally)</li>
                 <li><strong>Media Files:</strong> Custom audio or video files you choose as alarm sounds</li>
                 <li><strong>QR Code Data:</strong> QR codes you generate for alarm dismissal challenges</li>
+                <li><strong>Object-Scan Photos:</strong> A photo of an object you choose so the alarm can be dismissed by scanning that same object. Stored only on this device and never uploaded</li>
                 <li><strong>Usage Statistics:</strong> Your alarm completion streak and history (stored locally)</li>
             </ul>
 
@@ -390,7 +410,7 @@
                     <div class="permission-icon">📷</div>
                     <div class="permission-details">
                         <strong>Camera (CAMERA)</strong>
-                        Only used if you choose QR code scanning as an alarm unlock method. No photos are stored or transmitted.
+                        Used if you choose QR scanning or object-scan unlock. Object-scan photos stay on this device and are never uploaded. The flashlight is used only while you are capturing or matching, if you turn it on.
                     </div>
                 </div>
 
@@ -455,7 +475,7 @@
                     <div class="permission-icon">🌐</div>
                     <div class="permission-details">
                         <strong>Internet (INTERNET)</strong>
-                        Required for AI Coach generation, purchase validation, and anonymous analytics.
+                        Required for AI Coach generation, purchase validation, anonymous analytics, and ads.
                     </div>
                 </div>
             </div>
@@ -538,7 +558,19 @@
                     not to keep asking</li>
             </ul>
 
-            <h3>4.5 Expo Platform</h3>
+            <h3>4.5 Google AdMob</h3>
+            <p>
+                BattleCall shows full-screen ads to free users a few seconds after creating a regular alarm and after
+                completing an alarm challenge. Ads are served by <strong>Google AdMob</strong>:
+            </p>
+            <ul>
+                <li>Your advertising ID, approximate location, device type, and anonymous usage signals may be used to choose which ad to show</li>
+                <li>In the EEA, UK and similar regions, Google's consent form is shown before personalized ads are requested</li>
+                <li>Premium and trial users never see ads, and the ad SDK is not initialised for them</li>
+                <li>Google processes this data according to their <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and <a href="https://policies.google.com/technologies/ads" target="_blank">Advertising Policy</a></li>
+            </ul>
+
+            <h3>4.6 Expo Platform</h3>
             <p>
                 BattleCall is built using Expo/React Native framework. Expo may collect anonymous analytics data about app crashes 
                 and performance. This data does not contain any personal information.
@@ -548,13 +580,13 @@
             
             <h3>5.1 Local Storage</h3>
             <p>
-                All your personal data (alarms, goals, recordings, preferences) is stored locally on your device using secure 
+                All your personal data (alarms, goals, recordings, object-scan photos, preferences) is stored locally on your device using secure 
                 storage mechanisms:
             </p>
             <ul>
                 <li><strong>AsyncStorage:</strong> For app settings and user preferences</li>
                 <li><strong>SharedPreferences:</strong> For alarm configurations (Android)</li>
-                <li><strong>File System:</strong> For audio recordings and custom media</li>
+                <li><strong>File System:</strong> For audio recordings, custom media, and object-scan photos</li>
             </ul>
 
             <h3>5.2 Data Backup</h3>
@@ -567,9 +599,10 @@
             <ul>
                 <li>Data is stored locally and protected by your device's security (PIN, pattern, biometrics)</li>
                 <li>maken.dev operates no servers of its own. Data leaves your device only for Google Gemini (AI Coach),
-                    RevenueCat (purchase verification), and Firebase Analytics (anonymous usage), always over HTTPS</li>
+                    RevenueCat (purchase verification), Firebase Analytics (anonymous usage), and Google AdMob (ads for free users), always over HTTPS</li>
                 <li>Audio recordings are stored locally and never uploaded without your explicit action</li>
                 <li>QR code data is generated and stored locally on your device</li>
+                <li>Object-scan photos are stored locally and used only to match the same object when you dismiss an alarm</li>
             </ul>
 
             <h2>6. Data Sharing and Disclosure</h2>
@@ -581,14 +614,14 @@
                 <li><strong>For Purchases:</strong> An anonymous user ID and purchase receipt are shared with RevenueCat to verify subscription entitlements</li>
                 <li><strong>Legal Requirements:</strong> If required by law, court order, or government regulation</li>
                 <li><strong>Analytics &amp; Ads:</strong> Anonymous usage events and your resettable advertising ID are sent to
-                    Google Firebase Analytics, as described in section 4.2</li>
+                    Google Firebase Analytics and Google AdMob, as described in sections 4.2 and 4.5</li>
                 <li><strong>App Store Analytics:</strong> Anonymous usage data may be shared with Google Play Store for app improvement</li>
             </ul>
 
             <div class="highlight-box">
                 <strong>✅ No Data Selling:</strong> We will NEVER sell your personal data to advertisers, data brokers, 
-                or any third parties. The only identifier shared for advertising purposes is your resettable Android advertising ID, 
-                used solely to measure our own campaigns.
+                or any third parties. Your resettable Android advertising ID is used to measure our campaigns and, for free users,
+                to serve AdMob ads. Premium removes all ads.
             </div>
 
             <h2>7. Your Rights and Choices</h2>
@@ -607,6 +640,7 @@
                 <li><strong>AI Features:</strong> Choose traditional ringtones instead of AI Coach to avoid data transmission</li>
                 <li><strong>Permissions:</strong> Revoke any permission in your device settings (may limit functionality)</li>
                 <li><strong>Ad Tracking:</strong> Reset or delete your advertising ID in Android Settings → Privacy → Ads</li>
+                <li><strong>Ads:</strong> Upgrade to Premium to remove all in-app ads</li>
                 <li><strong>Review Prompts:</strong> Choose "Don't ask again" and BattleCall will never ask you to rate it again</li>
             </ul>
 
@@ -706,9 +740,14 @@
                 <li>Granting necessary permissions for app functionality</li>
                 <li>Transmission of data to Google Gemini when using AI Coach features (optional)</li>
                 <li>Collection of anonymous analytics events and your advertising ID by Google Firebase Analytics</li>
+                <li>Display of ads via Google AdMob if you are on the free plan (Premium removes ads)</li>
             </ul>
             <p>
                 You can withdraw consent at any time by uninstalling the app or disabling specific features.
+            </p>
+            <p>
+                Use of BattleCall is also governed by our
+                <a href="./terms-of-service.html">Terms of Service</a>.
             </p>
         </div>
 
